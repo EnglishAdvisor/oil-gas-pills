@@ -7,113 +7,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
   body {
     background: #0a0f1e;
     font-family: 'Barlow', sans-serif;
-    width: 1280px;
-    height: 720px;
-    overflow: hidden;
+    min-height: 100vh;
     position: relative;
   }
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 320px; height: 240px;
-    background-image: radial-gradient(circle, #0077b622 1px, transparent 1px);
-    background-size: 18px 18px;
-    pointer-events: none;
-  }
+ 
+  /* ── HEADER ── */
   .header {
     background: #0d1b2a;
-    padding: 0 36px;
-    height: 90px;
+    padding: 14px 24px;
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 2px solid #0077b640;
+    position: relative;
   }
-  .pill-title { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 700; color: #90c8e0; line-height: 1; }
-  .pill-title span { color: #0077b6; font-size: 32px; font-weight: 600; display: block; letter-spacing: 0.06em; text-transform: uppercase; }
-  .icon-box { width: 64px; height: 64px; border: 1.5px solid #0077b660; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .icon-box svg { width: 34px; height: 34px; stroke: #0077b6; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pill-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; color: #90c8e0; line-height: 1; }
+  .pill-title span { color: #0077b6; font-size: clamp(14px, 2.5vw, 22px); font-weight: 600; display: block; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .timer { background: #0077b615; border: 1px solid #0077b640; border-radius: 20px; padding: 4px 12px; font-size: 11px; color: #0077b6; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+  .icon-box { width: 48px; height: 48px; border: 1.5px solid #0077b660; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .icon-box svg { width: 26px; height: 26px; stroke: #0077b6; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+ 
+  /* ── STEPS ── */
+  .steps { display: flex; gap: 8px; padding: 10px 16px; flex-wrap: wrap; }
+  .step {
+    flex: 1; min-width: 120px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: #0077b615; border: 1px solid #0077b640; border-radius: 20px;
+    padding: 7px 10px; font-size: 12px; color: #90c8e0; font-weight: 500; text-align: center;
+  }
+  .step svg { width: 13px; height: 13px; stroke: #0077b6; fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
+ 
+  /* ── MAIN LAYOUT ── */
   .content {
     display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 14px;
-    padding: 14px 24px;
-    height: 586px;
+    grid-template-columns: 1fr 340px;
+    gap: 12px;
+    padding: 0 16px 16px;
   }
-  .left-col { display: flex; flex-direction: column; gap: 10px; }
-  .steps { display: flex; gap: 10px; }
-  .step {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
-    background: #0077b615; border: 1px solid #0077b640; border-radius: 20px;
-    padding: 6px 10px; font-size: 12px; color: #90c8e0; font-weight: 500;
-  }
-  .step svg { width: 14px; height: 14px; stroke: #0077b6; fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
+ 
+  .left-col { display: flex; flex-direction: column; gap: 12px; }
+ 
+  /* text + image row */
   .main-area {
-    flex: 1;
     background: #111827;
     border-radius: 10px;
-    padding: 14px 18px;
+    padding: 14px 16px;
     display: grid;
-    grid-template-columns: 1fr 240px;
+    grid-template-columns: 1fr 220px;
     gap: 14px;
-    overflow: hidden;
   }
-  .zone-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 8px; }
-  .text-block { font-size: 11.5px; line-height: 1.65; color: #c8d8e8; overflow: hidden; }
+ 
+  .zone-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 8px; }
+  .text-block { font-size: 12px; line-height: 1.65; color: #c8d8e8; }
   .text-block p { margin-bottom: 7px; }
  
-  /* highlighted clickable words */
   .hl {
-    color: #90c8e0;
-    font-weight: 600;
-    background: #0077b618;
-    padding: 0 3px;
-    border-radius: 3px;
-    text-decoration: none;
-    border-bottom: 1px dashed #0077b680;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    color: #90c8e0; font-weight: 600; background: #0077b618;
+    padding: 0 3px; border-radius: 3px; text-decoration: none;
+    border-bottom: 1px dashed #0077b680; transition: background 0.2s, color 0.2s;
   }
-  .hl:hover {
-    background: #0077b640;
-    color: #ffffff;
-    border-bottom-color: #0077b6;
-  }
+  .hl:hover { background: #0077b640; color: #fff; border-bottom-color: #0077b6; }
  
   .img-side { display: flex; flex-direction: column; gap: 10px; }
-  .platform-img { width: 100%; height: 210px; object-fit: cover; border-radius: 8px; border: 1px solid #0077b630; }
-  .img-fallback { display: none; width: 100%; height: 210px; background: #0d1b2a; border-radius: 8px; border: 1px solid #0077b630; align-items: center; justify-content: center; color: #0077b640; font-size: 11px; font-style: italic; }
+  .platform-img { width: 100%; height: 190px; object-fit: cover; border-radius: 8px; border: 1px solid #0077b630; }
+ 
   .task-box {
     flex: 1; background: #0a1628; border: 1px solid #0077b640; border-radius: 8px;
     padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px;
   }
-  .task-box svg { width: 18px; height: 18px; stroke: #0077b6; fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
+  .task-box svg { width: 16px; height: 16px; stroke: #0077b6; fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
   .task-box p { font-size: 11px; color: #90c8e0; font-style: italic; line-height: 1.45; }
-  .zone-support { background: #111827; border-radius: 10px; padding: 16px 16px; display: flex; flex-direction: column; gap: 6px; }
-  .keyword-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #90c8e0; text-transform: uppercase; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 1px solid #0077b630; margin-bottom: 2px; }
+ 
+  /* ── RIGHT — keywords ── */
+  .zone-support {
+    background: #111827; border-radius: 10px; padding: 14px 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .keyword-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; color: #90c8e0; text-transform: uppercase; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 1px solid #0077b630; margin-bottom: 2px; }
   .keyword-item { padding: 6px 0; border-bottom: 1px solid #0077b615; display: flex; flex-direction: column; gap: 3px; }
   .keyword-item:last-child { border-bottom: none; }
-  .kw {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700;
-    color: #0077b6; letter-spacing: 0.04em; text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .kw { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: #0077b6; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
   .kw:hover { color: #90c8e0; }
   .kw-blank { font-size: 10px; color: #2a4060; letter-spacing: 0.1em; }
   .kw-hint { font-size: 10px; color: #4a6a8a; font-style: italic; }
+ 
+  /* ── FOOTER ── */
   .footer {
-    background: #0d1b2a; height: 44px;
-    display: flex; align-items: center; justify-content: flex-end;
-    padding: 0 28px; gap: 10px;
-    border-top: 1px solid #0077b630;
-    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #0d1b2a; padding: 10px 24px;
+    display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+    border-top: 1px solid #0077b630; margin-top: 4px;
   }
-  .footer-icon svg { width: 24px; height: 24px; stroke: #0077b6; fill: none; stroke-width: 1.5; }
-  .footer-text { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 600; color: #0077b6; letter-spacing: 0.06em; text-transform: uppercase; }
-  .timer { position: absolute; top: 96px; right: 28px; background: #0077b615; border: 1px solid #0077b640; border-radius: 20px; padding: 3px 12px; font-size: 10px; color: #0077b6; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer-icon svg { width: 22px; height: 22px; stroke: #0077b6; fill: none; stroke-width: 1.5; }
+  .footer-text { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #0077b6; letter-spacing: 0.06em; text-transform: uppercase; }
+ 
+  /* ── RESPONSIVE — mobile ── */
+  @media (max-width: 700px) {
+    .header { padding: 12px 16px; }
+    .steps { padding: 8px 12px; }
+    .step { font-size: 11px; min-width: 100px; }
+ 
+    .content {
+      grid-template-columns: 1fr;
+      padding: 0 12px 16px;
+    }
+ 
+    .main-area {
+      grid-template-columns: 1fr;
+    }
+ 
+    .img-side { flex-direction: row; flex-wrap: wrap; }
+    .platform-img { height: 180px; flex: 1; min-width: 200px; }
+    .task-box { flex: 1; min-width: 200px; }
+ 
+    .zone-support { margin-top: 0; }
+ 
+    /* keywords side by side on mobile */
+    .keywords-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .keyword-item { padding: 5px 0; }
+  }
+ 
+  @media (max-width: 420px) {
+    .pill-title { font-size: 24px; }
+    .pill-title span { font-size: 13px; }
+    .icon-box { width: 40px; height: 40px; }
+    .icon-box svg { width: 22px; height: 22px; }
+    .img-side { flex-direction: column; }
+    .platform-img { height: 160px; }
+    .keywords-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -123,98 +151,95 @@
     1 — Background
     <span>Working Offshore</span>
   </div>
-  <div class="icon-box">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <div class="header-right">
+    <span class="timer">⏱ 15 min</span>
+    <div class="icon-box">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
   </div>
 </div>
  
-<div class="timer">⏱ 15 min</div>
+<div class="steps">
+  <div class="step">
+    <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+    1. Listen to teacher's audio
+  </div>
+  <div class="step">
+    <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    2. Read the text
+  </div>
+  <div class="step">
+    <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    3. Check highlighted words
+  </div>
+</div>
  
 <div class="content">
   <div class="left-col">
- 
-    <div class="steps">
-      <div class="step">
-        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-        1. Listen to teacher's audio
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        2. Read the text
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        3. Check highlighted words meaning &amp; pronunciation
-      </div>
-    </div>
- 
     <div class="main-area">
       <div>
-        <div class="zone-label">Read & Highlight — click any word to see definition</div>
+        <div class="zone-label">Read & Highlight — click words for meaning & pronunciation</div>
         <div class="text-block">
           <p>Working on an <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/offshore" target="_blank">offshore platform</a> is different from other jobs. A platform works continuously, needing a team every day and night.</p>
           <p>The platform has a <a class="hl" href="https://www.linguee.com.br/ingles-portugues/traducao/helideck.html" target="_blank">helideck</a> for helicopter landings — this is how you get to work. You may be searched and <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/breathalyse?q=Breathalysed" target="_blank">breathalysed</a>. No alcohol allowed.</p>
           <p>Typically, you work two weeks for 12 hours/day, then two weeks' leave. You share a cabin on the alternating <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/shift" target="_blank">shift</a>. Food is restaurant standard.</p>
           <p>Pay is good with travel <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/allowance" target="_blank">allowances</a> and tax concessions. Jobs range from labourers to engineers. A crew of 150 is common. The platform is managed by the <a class="hl" href="https://www.linguee.com.br/ingles-portugues/traducao/oim.html" target="_blank">OIM</a> (Oil Installation Manager).</p>
           <p>The platform is supplied from an onshore base — by <a class="hl" href="https://www.linguee.com.br/ingles-portugues/traducao/supply+boat.html" target="_blank">supply boat</a> for regular supplies and helicopter for urgent material. Regular communication is maintained with the onshore base.</p>
-          <p>The work is often hard. You must be fit and healthy, follow instructions, and be reliable — especially regarding <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">safety</a>. You will receive regular safety training and be expected to work as a team.</p>
-          <p>Although competition for jobs is high, once you have <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/experience" target="_blank">experience</a> there are opportunities to work in different parts of the world. Many workers use their shore leave for further education and training.</p>
+          <p>The work is often hard. You must be fit and healthy, follow instructions, and be reliable — especially regarding <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">safety</a>. Regular safety training is provided and teamwork is essential.</p>
+          <p>Although competition for jobs is high, once you have <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/experience" target="_blank">experience</a> there are opportunities worldwide. Many workers use shore leave for further education and training.</p>
         </div>
       </div>
  
       <div class="img-side">
-        <img class="platform-img"
-          src="4266150.jpg"
-          alt="Offshore production platform"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="img-fallback">[offshore platform image]</div>
+        <img class="platform-img" src="4266150.jpg" alt="Offshore production platform"
+          onerror="this.style.display='none'">
         <div class="task-box">
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <p>🎙️ Record an audio reading the entire text and send it to your teacher on WhatsApp. Pay attention to the right pronunciation of the highlighted words.</p>
         </div>
       </div>
     </div>
- 
   </div>
  
   <div class="zone-support">
-    <div class="zone-label">Click to open Cambridge Dictionary</div>
+    <div class="zone-label">Click to open Cambridge / Linguee</div>
     <div class="keyword-title">Key words</div>
- 
-    <div class="keyword-item">
-      <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/helideck.html" target="_blank">Helideck</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Where helicopters land</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/breathalyse?q=Breathalysed" target="_blank">Breathalysed</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Tested for alcohol before boarding</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/shift" target="_blank">Shift</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Scheduled period of work</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/allowance" target="_blank">Allowances</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Extra money for travel/location</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/oim.html" target="_blank">OIM</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Oil Installation Manager</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/supply+boat.html" target="_blank">Supply Boat</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Delivers regular supplies to platform</span>
-    </div>
-    <div class="keyword-item">
-      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">Safety</a>
-      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
-      <span class="kw-hint">Top priority on any platform</span>
+    <div class="keywords-grid">
+      <div class="keyword-item">
+        <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/helideck.html" target="_blank">Helideck</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Where helicopters land</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/breathalyse?q=Breathalysed" target="_blank">Breathalysed</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Tested for alcohol</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/shift" target="_blank">Shift</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Scheduled work period</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/allowance" target="_blank">Allowances</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Extra money for travel</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/oim.html" target="_blank">OIM</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Oil Installation Manager</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://www.linguee.com.br/ingles-portugues/traducao/supply+boat.html" target="_blank">Supply Boat</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Delivers supplies to platform</span>
+      </div>
+      <div class="keyword-item">
+        <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">Safety</a>
+        <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+        <span class="kw-hint">Top priority on platform</span>
+      </div>
     </div>
   </div>
 </div>
