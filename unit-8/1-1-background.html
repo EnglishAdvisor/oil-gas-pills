@@ -1,8 +1,3 @@
-bash
-
-cat /mnt/user-data/outputs/pilula_8_1_1_background.html
-Saída
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +35,6 @@ Saída
   .pill-title span { color: #0077b6; font-size: 32px; font-weight: 600; display: block; letter-spacing: 0.06em; text-transform: uppercase; }
   .icon-box { width: 64px; height: 64px; border: 1.5px solid #0077b660; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .icon-box svg { width: 34px; height: 34px; stroke: #0077b6; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-
   .content {
     display: grid;
     grid-template-columns: 1fr 380px;
@@ -48,9 +42,7 @@ Saída
     padding: 14px 24px;
     height: 586px;
   }
-
   .left-col { display: flex; flex-direction: column; gap: 10px; }
-
   .steps { display: flex; gap: 10px; }
   .step {
     flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
@@ -58,7 +50,6 @@ Saída
     padding: 6px 10px; font-size: 12px; color: #90c8e0; font-weight: 500;
   }
   .step svg { width: 14px; height: 14px; stroke: #0077b6; fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
-
   .main-area {
     flex: 1;
     background: #111827;
@@ -69,13 +60,28 @@ Saída
     gap: 14px;
     overflow: hidden;
   }
-
   .zone-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 8px; }
-
   .text-block { font-size: 11.5px; line-height: 1.65; color: #c8d8e8; overflow: hidden; }
   .text-block p { margin-bottom: 7px; }
-  .hl { color: #90c8e0; font-weight: 600; background: #0077b618; padding: 0 3px; border-radius: 3px; }
-
+ 
+  /* highlighted clickable words */
+  .hl {
+    color: #90c8e0;
+    font-weight: 600;
+    background: #0077b618;
+    padding: 0 3px;
+    border-radius: 3px;
+    text-decoration: none;
+    border-bottom: 1px dashed #0077b680;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .hl:hover {
+    background: #0077b640;
+    color: #ffffff;
+    border-bottom-color: #0077b6;
+  }
+ 
   .img-side { display: flex; flex-direction: column; gap: 10px; }
   .platform-img { width: 100%; height: 210px; object-fit: cover; border-radius: 8px; border: 1px solid #0077b630; }
   .img-fallback { display: none; width: 100%; height: 210px; background: #0d1b2a; border-radius: 8px; border: 1px solid #0077b630; align-items: center; justify-content: center; color: #0077b640; font-size: 11px; font-style: italic; }
@@ -85,16 +91,19 @@ Saída
   }
   .task-box svg { width: 18px; height: 18px; stroke: #0077b6; fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
   .task-box p { font-size: 11px; color: #90c8e0; font-style: italic; line-height: 1.45; }
-
-  /* RIGHT */
   .zone-support { background: #111827; border-radius: 10px; padding: 16px 16px; display: flex; flex-direction: column; gap: 6px; }
   .keyword-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #90c8e0; text-transform: uppercase; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 1px solid #0077b630; margin-bottom: 2px; }
   .keyword-item { padding: 6px 0; border-bottom: 1px solid #0077b615; display: flex; flex-direction: column; gap: 3px; }
   .keyword-item:last-child { border-bottom: none; }
-  .kw { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: #0077b6; letter-spacing: 0.04em; text-transform: uppercase; }
+  .kw {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700;
+    color: #0077b6; letter-spacing: 0.04em; text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .kw:hover { color: #90c8e0; }
   .kw-blank { font-size: 10px; color: #2a4060; letter-spacing: 0.1em; }
   .kw-hint { font-size: 10px; color: #4a6a8a; font-style: italic; }
-
   .footer {
     background: #0d1b2a; height: 44px;
     display: flex; align-items: center; justify-content: flex-end;
@@ -108,7 +117,7 @@ Saída
 </style>
 </head>
 <body>
-
+ 
 <div class="header">
   <div class="pill-title">
     1.1 — Background
@@ -118,12 +127,12 @@ Saída
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
   </div>
 </div>
-
+ 
 <div class="timer">⏱ 15 min</div>
-
+ 
 <div class="content">
   <div class="left-col">
-
+ 
     <div class="steps">
       <div class="step">
         <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
@@ -138,21 +147,21 @@ Saída
         3. Highlight key words
       </div>
     </div>
-
+ 
     <div class="main-area">
       <div>
-        <div class="zone-label">Read & Highlight</div>
+        <div class="zone-label">Read & Highlight — click any word to see definition</div>
         <div class="text-block">
-          <p>Working on an <span class="hl">offshore platform</span> is different from other jobs. A platform works continuously, needing a team every day and night.</p>
-          <p>The platform has a <span class="hl">helideck</span> for helicopter landings — this is how you get to work. You may be searched and <span class="hl">breathalysed</span>. No alcohol allowed.</p>
-          <p>Typically, you work two weeks for 12 hours/day, then two weeks' leave. You share a cabin on the alternating <span class="hl">shift</span>. Food is restaurant standard.</p>
-          <p>Pay is good with travel <span class="hl">allowances</span> and tax concessions. Jobs range from labourers to engineers. A crew of 150 is common. The platform is managed by the <span class="hl">OIM</span> (Oil Installation Manager).</p>
-          <p>The platform is supplied from an onshore base — by <span class="hl">supply boat</span> for regular supplies and helicopter for urgent material. Regular communication is maintained with the onshore base.</p>
-          <p>The work is often hard. You must be fit and healthy, follow instructions, and be reliable — especially regarding <span class="hl">safety</span>. You will receive regular safety training and be expected to work as a team.</p>
-          <p>Although competition for jobs is high, once you have experience there are opportunities to work in different parts of the world. Many workers use their shore leave for further education and training.</p>
+          <p>Working on an <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/offshore" target="_blank">offshore platform</a> is different from other jobs. A platform works continuously, needing a team every day and night.</p>
+          <p>The platform has a <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/helideck" target="_blank">helideck</a> for helicopter landings — this is how you get to work. You may be searched and <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/breathalyse?q=Breathalysed" target="_blank">breathalysed</a>. No alcohol allowed.</p>
+          <p>Typically, you work two weeks for 12 hours/day, then two weeks' leave. You share a cabin on the alternating <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/shift" target="_blank">shift</a>. Food is restaurant standard.</p>
+          <p>Pay is good with travel <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/allowance" target="_blank">allowances</a> and tax concessions. Jobs range from labourers to engineers. A crew of 150 is common. The platform is managed by the <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/oim" target="_blank">OIM</a> (Oil Installation Manager).</p>
+          <p>The platform is supplied from an onshore base — by <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/supply-boat" target="_blank">supply boat</a> for regular supplies and helicopter for urgent material. Regular communication is maintained with the onshore base.</p>
+          <p>The work is often hard. You must be fit and healthy, follow instructions, and be reliable — especially regarding <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">safety</a>. You will receive regular safety training and be expected to work as a team.</p>
+          <p>Although competition for jobs is high, once you have <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/experience" target="_blank">experience</a> there are opportunities to work in different parts of the world. Many workers use their shore leave for further education and training.</p>
         </div>
       </div>
-
+ 
       <div class="img-side">
         <img class="platform-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oil_platform_P-51_%28Brazil%29.jpg/640px-Oil_platform_P-51_%28Brazil%29.jpg"
@@ -165,57 +174,59 @@ Saída
         </div>
       </div>
     </div>
-
+ 
   </div>
-
+ 
   <div class="zone-support">
-    <div class="zone-label">Find these in the text</div>
+    <div class="zone-label">Click to open Cambridge Dictionary</div>
     <div class="keyword-title">Key words</div>
-
+ 
     <div class="keyword-item">
-      <span class="kw">Helideck</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/helideck" target="_blank">Helideck</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Where helicopters land</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">Breathalysed</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/breathalyse?q=Breathalysed" target="_blank">Breathalysed</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Tested for alcohol before boarding</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">Shift</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/shift" target="_blank">Shift</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Scheduled period of work</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">Allowances</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/allowance" target="_blank">Allowances</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Extra money for travel/location</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">OIM</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/oim" target="_blank">OIM</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Oil Installation Manager</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">Supply Boat</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/supply-boat" target="_blank">Supply Boat</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Delivers regular supplies to platform</span>
     </div>
     <div class="keyword-item">
-      <span class="kw">Safety</span>
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/safety" target="_blank">Safety</a>
       <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
       <span class="kw-hint">Top priority on any platform</span>
     </div>
   </div>
 </div>
-
+ 
 <div class="footer">
   <div class="footer-icon">
     <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"/><line x1="8" y1="15" x2="8" y2="20"/><line x1="16" y1="15" x2="16" y2="20"/><rect x="6" y="11" width="12" height="4" rx="1"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="9" y1="8" x2="15" y2="8"/><circle cx="12" cy="5" r="2"/></svg>
   </div>
   <div class="footer-text">Unit 8 — Working Offshore</div>
 </div>
-
+ 
 </body>
 </html>
+
+ 
