@@ -7,14 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
   body {
     background: #0a0f1e;
     font-family: 'Barlow', sans-serif;
     min-height: 100vh;
     position: relative;
   }
- 
+
   /* ── HEADER ── */
   .header {
     background: #0d1b2a;
@@ -29,7 +29,7 @@
   .timer { background: #0077b615; border: 1px solid #0077b640; border-radius: 20px; padding: 4px 12px; font-size: 11px; color: #0077b6; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
   .icon-box { width: 48px; height: 48px; border: 1.5px solid #0077b660; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .icon-box svg { width: 26px; height: 26px; stroke: #0077b6; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
- 
+
   /* ── STEPS ── */
   .steps { display: flex; gap: 8px; padding: 10px 16px; flex-wrap: wrap; }
   .step {
@@ -39,7 +39,7 @@
     padding: 7px 10px; font-size: 12px; color: #90c8e0; font-weight: 500; text-align: center;
   }
   .step svg { width: 13px; height: 13px; stroke: #0077b6; fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
- 
+
   /* ── MAIN LAYOUT ── */
   .content {
     display: grid;
@@ -47,9 +47,9 @@
     gap: 12px;
     padding: 0 16px 16px;
   }
- 
+
   .left-col { display: flex; flex-direction: column; gap: 12px; }
- 
+
   /* text + image row */
   .main-area {
     background: #111827;
@@ -59,28 +59,28 @@
     grid-template-columns: 1fr 220px;
     gap: 14px;
   }
- 
+
   .zone-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 8px; }
   .text-block { font-size: 12px; line-height: 1.65; color: #c8d8e8; }
   .text-block p { margin-bottom: 7px; }
- 
+
   .hl {
     color: #90c8e0; font-weight: 600; background: #0077b618;
     padding: 0 3px; border-radius: 3px; text-decoration: none;
     border-bottom: 1px dashed #0077b680; transition: background 0.2s, color 0.2s;
   }
   .hl:hover { background: #0077b640; color: #fff; border-bottom-color: #0077b6; }
- 
+
   .img-side { display: flex; flex-direction: column; gap: 10px; }
   .platform-img { width: 100%; height: 190px; object-fit: cover; border-radius: 8px; border: 1px solid #0077b630; }
- 
+
   .task-box {
     flex: 1; background: #0a1628; border: 1px solid #0077b640; border-radius: 8px;
     padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px;
   }
   .task-box svg { width: 16px; height: 16px; stroke: #0077b6; fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
   .task-box p { font-size: 11px; color: #90c8e0; font-style: italic; line-height: 1.45; }
- 
+
   /* ── RIGHT — keywords ── */
   .zone-support {
     background: #111827; border-radius: 10px; padding: 14px 14px;
@@ -93,7 +93,7 @@
   .kw:hover { color: #90c8e0; }
   .kw-blank { font-size: 10px; color: #2a4060; letter-spacing: 0.1em; }
   .kw-hint { font-size: 10px; color: #4a6a8a; font-style: italic; }
- 
+
   /* ── FOOTER ── */
   .footer {
     background: #0d1b2a; padding: 10px 24px;
@@ -102,28 +102,28 @@
   }
   .footer-icon svg { width: 22px; height: 22px; stroke: #0077b6; fill: none; stroke-width: 1.5; }
   .footer-text { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #0077b6; letter-spacing: 0.06em; text-transform: uppercase; }
- 
+
   /* ── RESPONSIVE — mobile ── */
   @media (max-width: 700px) {
     .header { padding: 12px 16px; }
     .steps { padding: 8px 12px; }
     .step { font-size: 11px; min-width: 100px; }
- 
+
     .content {
       grid-template-columns: 1fr;
       padding: 0 12px 16px;
     }
- 
+
     .main-area {
       grid-template-columns: 1fr;
     }
- 
+
     .img-side { flex-direction: row; flex-wrap: wrap; }
     .platform-img { height: 180px; flex: 1; min-width: 200px; }
     .task-box { flex: 1; min-width: 200px; }
- 
+
     .zone-support { margin-top: 0; }
- 
+
     /* keywords side by side on mobile */
     .keywords-grid {
       display: grid;
@@ -132,7 +132,7 @@
     }
     .keyword-item { padding: 5px 0; }
   }
- 
+
   @media (max-width: 420px) {
     .pill-title { font-size: 24px; }
     .pill-title span { font-size: 13px; }
@@ -145,7 +145,7 @@
 </style>
 </head>
 <body>
- 
+
 <div class="header">
   <div class="pill-title">
     1 — Background
@@ -158,12 +158,12 @@
     </div>
   </div>
 </div>
- 
- 
+
+
 <div class="translate-warning">
   🌐 <strong>This page is in English on purpose.</strong> If your browser offers to translate it, please decline / <em>Por favor, não traduza esta página.</em>
 </div>
- 
+
 <div class="steps">
   <div class="step">
     <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
@@ -178,7 +178,7 @@
     3. Check highlighted words
   </div>
 </div>
- 
+
 <div class="content">
   <div class="left-col">
     <div class="main-area">
@@ -194,7 +194,7 @@
           <p>Although competition for jobs is high, once you have <a class="hl" href="https://dictionary.cambridge.org/dictionary/english-portuguese/experience" target="_blank">experience</a> there are opportunities worldwide. Many workers use shore leave for further education and training.</p>
         </div>
       </div>
- 
+
       <div class="img-side">
         <img class="platform-img" src="4266150.jpg" alt="Offshore production platform"
           onerror="this.style.display='none'">
@@ -205,7 +205,7 @@
       </div>
     </div>
   </div>
- 
+
   <div class="zone-support">
     <div class="zone-label">Click to open Cambridge / Linguee</div>
     <div class="keyword-title">Key words</div>
@@ -248,14 +248,13 @@
     </div>
   </div>
 </div>
- 
+
 <div class="footer">
   <div class="footer-icon">
     <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"/><line x1="8" y1="15" x2="8" y2="20"/><line x1="16" y1="15" x2="16" y2="20"/><rect x="6" y="11" width="12" height="4" rx="1"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="9" y1="8" x2="15" y2="8"/><circle cx="12" cy="5" r="2"/></svg>
   </div>
   <div class="footer-text">Unit 8 — Working Offshore</div>
 </div>
- 
+
 </body>
 </html>
- 
