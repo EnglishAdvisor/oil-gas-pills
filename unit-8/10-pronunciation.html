@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 — Pronunciation — Unit 8</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0f1e; font-family: 'Barlow', sans-serif; min-height: 100vh; }
+  .header { background: #0d1b2a; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #0077b640; }
+  .pill-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(26px, 5vw, 46px); font-weight: 700; color: #90c8e0; line-height: 1; }
+  .pill-title span { color: #0077b6; font-size: clamp(13px, 2.5vw, 20px); font-weight: 600; display: block; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .timer { background: #0077b615; border: 1px solid #0077b640; border-radius: 20px; padding: 4px 12px; font-size: 11px; color: #0077b6; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .icon-box { width: 48px; height: 48px; border: 1.5px solid #0077b660; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .icon-box svg { width: 26px; height: 26px; stroke: #0077b6; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .translate-warning { background: #0d1b2a; border-bottom: 1px solid #0077b630; padding: 6px 24px; font-size: 11px; color: #90c8e0; text-align: center; }
+  .translate-warning strong { color: #0077b6; }
+  .steps { display: flex; gap: 8px; padding: 10px 16px; flex-wrap: wrap; }
+  .step { flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 6px; background: #0077b615; border: 1px solid #0077b640; border-radius: 20px; padding: 7px 10px; font-size: 11.5px; color: #90c8e0; font-weight: 500; text-align: center; }
+  .step svg { width: 13px; height: 13px; stroke: #0077b6; fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; }
+  .content { display: grid; grid-template-columns: 1fr 340px; gap: 12px; padding: 0 16px 16px; }
+  .left-col { display: flex; flex-direction: column; gap: 12px; }
+  .panel { background: #111827; border-radius: 10px; padding: 16px 18px; }
+  .zone-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 8px; }
+  .act-block { border-left: 2px solid #0077b640; padding-left: 12px; margin-bottom: 12px; }
+  .act-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #0077b6; font-weight: 600; margin-bottom: 4px; }
+  .act-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #90c8e0; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .act-text { font-size: 11.5px; color: #c8d8e8; line-height: 1.6; }
+  .act-text ol, .act-text ul { padding-left: 16px; }
+  .act-text li { margin-bottom: 4px; }
+  .act-divider { border: none; border-top: 1px solid #0077b620; margin: 10px 0; }
+  .hl { color: #90c8e0; font-weight: 600; background: #0077b618; padding: 0 3px; border-radius: 3px; text-decoration: none; border-bottom: 1px dashed #0077b680; transition: background 0.2s, color 0.2s; }
+  .hl:hover { background: #0077b640; color: #fff; }
+  .task-box { background: #0a1628; border: 1px solid #0077b640; border-radius: 8px; padding: 10px 14px; display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; }
+  .task-box svg { width: 16px; height: 16px; stroke: #0077b6; fill: none; stroke-width: 1.5; flex-shrink: 0; margin-top: 2px; }
+  .task-box p { font-size: 11px; color: #90c8e0; font-style: italic; line-height: 1.45; }
+  .zone-support { background: #111827; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px; }
+  .keyword-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; color: #90c8e0; text-transform: uppercase; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 1px solid #0077b630; margin-bottom: 2px; }
+  .keyword-item { padding: 6px 0; border-bottom: 1px solid #0077b615; display: flex; flex-direction: column; gap: 3px; }
+  .keyword-item:last-child { border-bottom: none; }
+  .kw { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: #0077b6; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+  .kw:hover { color: #90c8e0; }
+  .kw-blank { font-size: 10px; color: #2a4060; letter-spacing: 0.1em; }
+  .kw-hint { font-size: 10px; color: #4a6a8a; font-style: italic; }
+  .footer { background: #0d1b2a; padding: 10px 24px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; border-top: 1px solid #0077b630; margin-top: 4px; }
+  .footer-icon svg { width: 22px; height: 22px; stroke: #0077b6; fill: none; stroke-width: 1.5; }
+  .footer-text { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; color: #0077b6; letter-spacing: 0.06em; text-transform: uppercase; }
+  @media (max-width: 700px) { .content { grid-template-columns: 1fr; padding: 0 12px 16px; } .steps { padding: 8px 12px; } .step { font-size: 10.5px; min-width: 90px; } }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="pill-title">10 — Pronunciation<span>Working Offshore</span></div>
+  <div class="header-right">
+    <span class="timer">⏱ 15 min</span>
+    <div class="icon-box"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+  </div>
+</div>
+<div class="translate-warning">
+  🌐 <strong>This page is in English on purpose.</strong> If your browser offers to translate it, please decline / <em>Por favor, não traduza esta página.</em>
+</div>
+<div class="steps"><div class="step"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>1. Listen & identify</div><div class="step"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>2. Tick true sentences</div><div class="step"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>3. Practise phrases</div></div>
+<div class="content">
+  <div class="left-col"><div class="panel">
+      <div class="zone-label">Consonant Clusters — str, ct, xtr</div>
+      <div class="act-text" style="margin-bottom:10px">
+        <p style="margin-bottom:8px"><strong style="color:#90c8e0">Clusters</strong> are groups of consonants, such as <em>str, ct, xtr</em>. They can be difficult to pronounce correctly. Listen and notice the sounds in the highlighted parts.</p>
+      </div>
+      <div class="act-block">
+      <div class="act-label">Activity 1 — Listen and tick</div>
+      <div class="act-title">✅ True or False?</div>
+      <div class="act-text"><ol><li>There are no extra sounds between the red letters. ☐</li><li>Some of the red letters sound weaker than normal. ☐</li></ol><p style='margin-top:8px'>Words to practise:</p><p><strong style='color:#0077b6'>in<u>st</u>rument · in<u>sp</u>ect · pla<u>tf</u>orm · <u>st</u>and by · fo<u>xtr</u>ot · off<u>sh</u>ore · produ<u>ct</u>ion · ele<u>ct</u>ric · in<u>st</u>all · equipm<u>ent</u> · vol<u>ts</u> · departm<u>ent</u></strong></p></div>
+    </div><hr class="act-divider">
+      <div class="act-block">
+      <div class="act-label">Activity 2 — Practise these phrases</div>
+      <div class="act-title">🗣️ Say them clearly</div>
+      <div class="act-text"><ol><li>an offshore production platform</li><li>Stand by, Foxtrot One.</li><li>It's an electrical instrument.</li><li>I'll install the equipment.</li><li>fifty volts or sixty volts</li></ol></div>
+    </div><hr class="act-divider">
+      <div class="task-box"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p>🎙️ Record yourself saying all 5 phrases clearly. Pay special attention to consonant clusters. Send to your teacher on WhatsApp.</p></div>
+    </div></div>
+  <div class="zone-support">
+    <div class="zone-label">Click for pronunciation & meaning</div>
+    <div class="keyword-title">Key words</div>
+    <div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/cluster" target="_blank">Cluster</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Group of consonants together</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/consonant" target="_blank">Consonant</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Letter that is not a vowel</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/stress" target="_blank">Stress</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Emphasis on a syllable</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/instrument" target="_blank">Instrument</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Tool for measuring or making music</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/inspect" target="_blank">Inspect</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Look at something carefully</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/platform" target="_blank">Platform</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Raised flat structure / offshore rig</span>
+    </div><div class="keyword-item">
+      <a class="kw" href="https://dictionary.cambridge.org/dictionary/english-portuguese/electric" target="_blank">Electric</a>
+      <span class="kw-blank">_ _ _ _ _ _ _ _ _ _ _</span>
+      <span class="kw-hint">Related to electricity</span>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-icon"><svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"/><line x1="8" y1="15" x2="8" y2="20"/><line x1="16" y1="15" x2="16" y2="20"/><rect x="6" y="11" width="12" height="4" rx="1"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="9" y1="8" x2="15" y2="8"/><circle cx="12" cy="5" r="2"/></svg></div>
+  <div class="footer-text">Unit 8 — Working Offshore</div>
+</div>
+</body>
+</html>
